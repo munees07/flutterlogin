@@ -19,21 +19,21 @@ class _nameState extends State<Login> {
     if (username == 'munees' && password == "mz7zm") {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => home()),
+        MaterialPageRoute(builder: (context) => const home()),
       );
     } else if (username == '' && password == '') {
       showDialog(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Details Not Entered'),
-            content: Text('Enter the Username and Password.'),
+            title: const Text('Details Not Entered'),
+            content: const Text('Enter the Username and Password.'),
             actions: <Widget>[
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: Text('OK'),
+                child: const Text('OK'),
               ),
             ],
           );
@@ -44,14 +44,14 @@ class _nameState extends State<Login> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Incorrect Details'),
-            content: Text('Username or password is incorrect.'),
+            title: const Text('Incorrect Details'),
+            content: const Text('Username or password is incorrect.'),
             actions: <Widget>[
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: Text('OK'),
+                child: const Text('OK'),
               ),
             ],
           );
@@ -66,7 +66,11 @@ class _nameState extends State<Login> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 228, 167, 11),
-        title: Center(child: Text("LOGIN PAGE")),
+        title: const Center(
+            child: Text(
+          "LOGIN PAGE",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        )),
       ),
       body: Form(
           key: _formKey,
@@ -86,44 +90,54 @@ class _nameState extends State<Login> {
                       ),
                     ),
                     TextFormField(
+                      cursorColor: Colors.amber,
                       controller: userController,
                       keyboardType: TextInputType.text,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                           labelText: "Username",
-                          labelStyle: TextStyle(color: Colors.grey),
-                          hintText: "enter the username",
-                          hintStyle: TextStyle(color: Colors.grey),
-                          prefixIcon: Icon(Icons.person),
+                          labelStyle: const TextStyle(color: Colors.grey),
+                          hintText: "Enter the username",
+                          hintStyle: const TextStyle(color: Colors.grey),
+                          prefixIcon: const Icon(Icons.person),
                           prefixIconColor: Colors.grey,
                           border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey),
+                            borderSide: const BorderSide(color: Colors.grey),
                             borderRadius: BorderRadius.circular(50),
                           ),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(color: Colors.amber),
+                              borderRadius: BorderRadius.circular(50)),
                           enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.grey),
+                              borderSide: const BorderSide(color: Colors.grey),
                               borderRadius: BorderRadius.circular(50))),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 20, bottom: 20),
                       child: TextFormField(
+                        cursorColor: Colors.amber,
                         controller: passwordController,
                         keyboardType: TextInputType.text,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         obscureText: true,
                         decoration: InputDecoration(
                             labelText: "Password",
-                            labelStyle: TextStyle(color: Colors.grey),
-                            hintText: "enter the Password",
-                            hintStyle: TextStyle(color: Colors.grey),
-                            prefixIcon: Icon(Icons.lock),
+                            labelStyle: const TextStyle(color: Colors.grey),
+                            hintText: "Enter the Password",
+                            hintStyle: const TextStyle(color: Colors.grey),
+                            prefixIcon: const Icon(Icons.lock),
                             prefixIconColor: Colors.grey,
                             border: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.grey),
+                              borderSide: const BorderSide(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(color: Colors.amber),
                               borderRadius: BorderRadius.circular(50),
                             ),
                             enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.grey),
+                                borderSide:
+                                    const BorderSide(color: Colors.grey),
                                 borderRadius: BorderRadius.circular(50))),
                       ),
                     ),
@@ -132,11 +146,18 @@ class _nameState extends State<Login> {
                       width: 100,
                       child: ElevatedButton(
                         onPressed: _login,
-                        child: Text("Login"),
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 228, 167, 11),
+                            backgroundColor:
+                                const Color.fromARGB(255, 228, 167, 11),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(50))),
+                        child: const Text(
+                          "Login",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17),
+                        ),
                       ),
                     ),
                   ],

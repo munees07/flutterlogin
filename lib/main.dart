@@ -18,8 +18,8 @@ class _newAppState extends State<newApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Login(),
-      routes: {home.routeName: (context) => home()},
+      home: const Login(),
+      routes: {home.routeName: (context) => const home()},
     );
   }
 }

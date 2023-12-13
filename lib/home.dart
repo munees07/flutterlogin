@@ -24,33 +24,62 @@ class _homeState extends State<home> {
     'Breaking Bad',
     'Money Heist',
     'Iron Man',
-    'Captain America'
+    'Captain America',
+    'Ant Man',
+    'DareDevil'
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 228, 167, 11),
-          title: Text("HOME PAGE"),
+          backgroundColor: const Color.fromARGB(255, 228, 167, 11),
+          title: const Text(
+            "HOME PAGE",
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          ),
           actions: [
             IconButton(
                 onPressed: () {
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) => Login()));
                 },
-                icon: Icon(Icons.logout))
+                icon: const Icon(
+                  Icons.logout,
+                  color: Colors.black,
+                ))
           ],
         ),
         body: Container(
-          color: Colors.amberAccent,
-          child: ListView.builder(
+          color: Colors.black,
+          child: ListView.separated(
             itemCount: movies.length,
+            separatorBuilder: (context, index) {
+              return const Divider(
+                indent: 20,
+                endIndent: 20,
+                height: 20,
+                thickness: 1,
+                color: Colors.grey,
+              );
+            },
             itemBuilder: (BuildContext context, int index) {
               return ListTile(
-                leading: Icon(Icons.movie),
-                title: Text(movies[index]),
-                trailing: Icon(Icons.arrow_drop_down),
+                leading: const Icon(
+                  Icons.movie,
+                  color: Colors.grey,
+                ),
+                title: Opacity(
+                  opacity: 0.75,
+                  child: Text(
+                    movies[index],
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                trailing: const Icon(
+                  Icons.arrow_drop_down,
+                  color: Colors.grey,
+                ),
               );
             },
           ),
