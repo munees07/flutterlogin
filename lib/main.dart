@@ -3,23 +3,23 @@ import 'home.dart';
 import 'login.dart';
 
 void main() {
-  runApp(const newApp());
+  runApp(const NewApp());
 }
 
-class newApp extends StatefulWidget {
-  const newApp({super.key});
+class NewApp extends StatefulWidget {
+  const NewApp({super.key});
 
   @override
-  State<newApp> createState() => _newAppState();
+  State<NewApp> createState() => _NewAppState();
 }
 
-class _newAppState extends State<newApp> {
+class _NewAppState extends State<NewApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const Login(),
-      routes: {home.routeName: (context) => const home()},
+      routes: {Home.routeName: (context) => const Home()},
     );
   }
 }

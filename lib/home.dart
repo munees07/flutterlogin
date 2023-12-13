@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'login.dart';
 
-class home extends StatefulWidget {
-  const home({super.key});
+class Home extends StatefulWidget {
+  const Home({super.key});
   static const routeName = "homePage";
 
   @override
-  State<home> createState() => _homeState();
+  State<Home> createState() => _HomeState();
 }
 
-class _homeState extends State<home> {
+class _HomeState extends State<Home> {
   var movies = [
     'John Wick',
     'Hangover',
@@ -42,7 +42,7 @@ class _homeState extends State<home> {
             IconButton(
                 onPressed: () {
                   Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => Login()));
+                      MaterialPageRoute(builder: (context) => const Login()));
                 },
                 icon: const Icon(
                   Icons.logout,
@@ -73,7 +73,7 @@ class _homeState extends State<home> {
                   opacity: 0.75,
                   child: Text(
                     movies[index],
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                   ),
                 ),
                 trailing: const Icon(

@@ -5,10 +5,10 @@ class Login extends StatefulWidget {
   const Login({super.key});
 
   @override
-  State<Login> createState() => _nameState();
+  State<Login> createState() => _NameState();
 }
 
-class _nameState extends State<Login> {
+class _NameState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController userController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -19,7 +19,7 @@ class _nameState extends State<Login> {
     if (username == 'munees' && password == "mz7zm") {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const home()),
+        MaterialPageRoute(builder: (context) => const Home()),
       );
     } else if (username == '' && password == '') {
       showDialog(
@@ -65,7 +65,7 @@ class _nameState extends State<Login> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 228, 167, 11),
+        backgroundColor: const Color.fromARGB(255, 228, 167, 11),
         title: const Center(
             child: Text(
           "LOGIN PAGE",
