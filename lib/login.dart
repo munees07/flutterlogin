@@ -10,6 +10,8 @@ class Login extends StatefulWidget {
 
 class _NameState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
+  final String username = 'munees';
+  final String password = 'mz7zm';
   TextEditingController userController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   void _login() {
@@ -111,6 +113,15 @@ class _NameState extends State<Login> {
                           enabledBorder: OutlineInputBorder(
                               borderSide: const BorderSide(color: Colors.grey),
                               borderRadius: BorderRadius.circular(50))),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'please enter a username';
+                        } else if (value != username) {
+                          return 'invalid username';
+                        } else {
+                          return null;
+                        }
+                      },
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 20, bottom: 20),
@@ -139,13 +150,28 @@ class _NameState extends State<Login> {
                                 borderSide:
                                     const BorderSide(color: Colors.grey),
                                 borderRadius: BorderRadius.circular(50))),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'please enter a password';
+                          } else if (value != password) {
+                            return 'invalid password';
+                          } else {
+                            return null;
+                          }
+                        },
                       ),
                     ),
                     SizedBox(
                       height: 50,
                       width: 100,
                       child: ElevatedButton(
-                        onPressed: _login,
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            _login();
+                          } else {
+                            _login();
+                          }
+                        },
                         style: ElevatedButton.styleFrom(
                             backgroundColor:
                                 const Color.fromARGB(255, 228, 167, 11),
