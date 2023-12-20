@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:login/splashscreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'login.dart';
 
 class Home extends StatefulWidget {
@@ -40,7 +42,10 @@ class _HomeState extends State<Home> {
           ),
           actions: [
             IconButton(
-                onPressed: () {
+                onPressed: () async {
+                  var sharedPref = await SharedPreferences.getInstance();
+                  sharedPref.setBool(SplashScreenState.KEYLOGIN, false);
+                  // ignore: use_build_context_synchronously
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) => const Login()));
                 },

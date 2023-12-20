@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:login/splashscreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'home.dart';
 
 class Login extends StatefulWidget {
@@ -14,11 +16,15 @@ class _Login extends State<Login> {
   final String password = 'mz7zm';
   TextEditingController userController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  void _login() {
+  void _login() async {
     String username = userController.text;
     dynamic password = passwordController.text;
 
     if (username == 'munees' && password == "mz7zm") {
+      var sharedPref = await SharedPreferences.getInstance();
+      sharedPref.setBool(SplashScreenState.KEYLOGIN, true);
+
+      // ignore: use_build_context_synchronously
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const Home()),

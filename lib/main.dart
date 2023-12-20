@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'login.dart';
+// import 'login.dart';
+import 'splashscreen.dart';
 
 void main() {
   runApp(const NewApp());
@@ -12,7 +13,7 @@ class NewApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Login(),
+      home: SplashScreen(),
     );
   }
 }
